@@ -1,0 +1,188 @@
+/*============================================================================
+// PRICE PANEL
+==============================================================================*/
+
+Kirki::add_panel( 'price_id', array(
+    'priority'    => 19,
+    'title'       => esc_html__( 'Price Panel', 'mark' ),
+    'description' => esc_html__( 'Price panel Slide', 'mark' ),
+) );
+
+Kirki::add_section( 'price_section', array(
+    'title'          => esc_html__( 'Price Section', 'mark' ),
+    'description'    => esc_html__( 'Price section slide', 'mark' ),
+    'panel'          => 'price_id',
+    'priority'       => 160,
+) );
+
+Kirki::add_field( 'price_section', [
+	'type'        => 'switch',
+	'settings'    => 'price_on',
+	'label'       => esc_html__( 'On/Off', 'mark' ),
+	'section'     => 'price_section',
+	'default'     => '1',
+	'priority'    => 10,
+	'choices'     => [
+		'on'  => esc_html__( 'Enable', 'mark' ),
+		'off' => esc_html__( 'Disable', 'mark' ),
+	],
+] );
+
+// price Ttitle Field
+
+Kirki::add_field( 'price_section', array(
+	'type'     => 'text',
+	'settings' => 'price_title_setting',
+	'label'    => esc_html__( 'Price Heading', 'mark' ),
+	'section'  => 'price_section',
+	'default'  => esc_html__( 'This is a default value', 'mark' ),
+	'priority' => 11,
+) );
+
+// price Description Field
+
+Kirki::add_field( 'price_section', [
+	'type'     => 'textarea',
+	'settings' => 'price_desc_setting',
+	'label'    => esc_html__( 'Price Description', 'mark' ),
+	'section'  => 'price_section',
+	'default'  => esc_html__( 'This is a default value', 'mark' ),
+	'priority' => 12,
+] );
+
+Kirki::add_field( 'price_section', [
+	'type'        => 'image',
+	'settings'    => 'price_img_setting',
+	'label'       => esc_html__( 'Add Banner', 'mark' ),
+	'description' => esc_html__( 'Background Image', 'mark' ),
+	'section'     => 'price_section',
+	'default'     => '',
+	'priority' => 13,
+
+] );
+
+Kirki::add_field( 'price_section', array(
+    'type'        => 'repeater',
+    'label'       => esc_attr__( 'Price Repeater Control', 'mark' ),
+    'description' => esc_attr__( 'You can creat as many as Price row possible, so create your first row!' ),
+    'help'        => esc_attr__( 'This is a tooltip', 'mark' ),
+    'section'     => 'price_section',
+    'priority'    => 13,
+    'row_label' => [
+		'type'  => 'field',
+		'value' => esc_html__('Price Plans', 'mark' ),
+		'field' => 'price_text_title',
+	],
+    'settings'    => 'repeater_price',
+    'default'     => array(),
+    'fields' => array(
+    	'price_text_title' => array(
+            'type'        => 'text',
+            'label'       => esc_attr__( 'Plan Name', 'mark' ),
+            'description' => esc_attr__( 'Insert Plan Name', 'mark' ),
+            'default'     => '',
+        ),
+
+        'price_number' => array(
+            'type'        => 'number',
+            'label'       => esc_attr__( 'Plan Price', 'mark' ),
+            'description' => esc_attr__( 'Insert Plan Price', 'mark' ),
+            'default'     => '',
+        ),
+
+        'price_year' => array(
+            'type'        => 'text',
+            'label'       => esc_attr__( 'Plan Year', 'mark' ),
+            'default'     => '',
+            'description' => 'No of year of plan'
+        ),
+       
+
+        'price_details_one' => array(
+		    'type'        => 'text',
+		    'label'       => esc_attr__( 'Price Options', 'mark' ),
+		    'description' => esc_attr__( 'Insert Options', 'mark' ),
+            
+        ),      
+
+
+        'price_details_two' => array(
+		    'type'        => 'text',
+		    'label'       => esc_attr__( 'Price Options', 'mark' ),
+		    'description' => esc_attr__( 'Insert Options', 'mark' ),
+            
+        ),
+
+        'price_details_three' => array(
+		    'type'        => 'text',
+		    'label'       => esc_attr__( 'Price Options', 'mark' ),
+		    'description' => esc_attr__( 'Insert Options', 'mark' ),
+            
+        ),
+       
+
+        'price_details_four' => array(
+		    'type'        => 'text',
+		    'label'       => esc_attr__( 'Price Options', 'mark' ),
+		    'description' => esc_attr__( 'Insert Options', 'mark' ),
+            
+        ),
+       
+
+        'price_pur_btn' => array(
+		    'type'        => 'text',
+		    'label'       => esc_attr__( 'Button Label', 'mark' ),
+		    'description' => esc_attr__( 'Insert label', 'mark' ),
+            
+        ),       
+
+
+        'price_url_btn' => array(
+		    'type'        => 'link',
+		    'label'       => esc_attr__( 'Button URL', 'mark' ),
+		    'description' => esc_attr__( 'Insert url', 'mark' ),
+            
+        ),
+
+        'price_feat_btn' => array(
+		    'type'        => 'checkbox',
+		    'label'       => esc_html__( 'Featured ?', 'mark' ),
+	        'description' => esc_html__( 'if featured button color will change', 'mark' ),
+	        'default'     => false,
+            
+        ),
+        'price_feat_btn_two' => array(
+		    'type'        => 'checkbox',
+		    'label'       => esc_html__( 'Featured ?', 'mark' ),
+	        'description' => esc_html__( 'if featured price color will change', 'mark' ),
+	        'default'     => false,
+            
+        ),
+        'price_feat_effect' => array(
+		    'type'        => 'checkbox',
+		    'label'       => esc_html__( 'Featured ?', 'mark' ),
+	        'description' => esc_html__( 'if featured new html element', 'mark' ),
+	        'default'     => false,
+            
+        ),
+
+        'price_feat_html' => array(
+		    'type'        => 'code',
+		    'label'       => esc_html__( 'HTML code box', 'mark' ),
+	        'description' => esc_html__( 'if featured new html element', 'mark' ),
+	        'default'     => '',
+			  'choices'     => [
+				'language' => 'html',
+			],
+		    'active_callback'      => array( 
+		        array( 
+		            'setting'   => 'price_feat_effect',
+		            'operator'  => '==',
+		            'value'     => true
+		        )
+		    ),    
+        ),
+
+
+    ),
+));
